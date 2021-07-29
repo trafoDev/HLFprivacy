@@ -1,0 +1,9 @@
+{
+	"network-configs": {
+		"network": {
+			"name": "blockchain.explorer",
+			"profile": "./connection-profile/explorer_connection_profile.json"
+		}
+	},
+	"license": "Apache-2.0"
+}
