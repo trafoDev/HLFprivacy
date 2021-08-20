@@ -27,6 +27,7 @@ function setEnv4Org1() {
   export CORE_PEER_TLS_ROOTCERT_FILE=${HOME}/fabric-samples/test-network/organizations/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt
   export CORE_PEER_MSPCONFIGPATH=${HOME}/fabric-samples/test-network/organizations/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp
   export CORE_PEER_ADDRESS=localhost:7051
+  export PEER_ID=peer0.org1.example.com
 }
 
 function setEnv4Org2() {
@@ -36,7 +37,7 @@ function setEnv4Org2() {
   export CORE_PEER_TLS_ROOTCERT_FILE=${HOME}/fabric-samples/test-network/organizations/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt
   export CORE_PEER_MSPCONFIGPATH=${HOME}/fabric-samples/test-network/organizations/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp
   export CORE_PEER_ADDRESS=localhost:9051
-
+  export PEER_ID=peer0.org2.example.com
 }
 
 function setEnv4Org3() {
@@ -46,6 +47,7 @@ function setEnv4Org3() {
   export CORE_PEER_TLS_ROOTCERT_FILE=${HOME}/fabric-samples/test-network/organizations/peerOrganizations/org3.example.com/peers/peer0.org3.example.com/tls/ca.crt
   export CORE_PEER_MSPCONFIGPATH=${HOME}/fabric-samples/test-network/organizations/peerOrganizations/org3.example.com/users/Admin@org3.example.com/msp
   export CORE_PEER_ADDRESS=localhost:11051
+  export PEER_ID=peer0.org3.example.com
 }
 
 function pressAnyKey() {
