@@ -5,6 +5,7 @@ cd
 cd fabric-samples/test-network
 #initialize marble with data stored in PDC
 setEnv4Org1
+echo "Create marbles from 1 to 5 using private chaincode installed on channel.n1 channel"
 export MARBLE=$(echo -n "{\"name\":\"marble2\",\"color\":\"red\",\"size\":22,\"owner\":\"bob\",\"price\":22}" | base64 | tr -d \\n)
 peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.example.com \
                       --tls --cafile ${PWD}/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem \
@@ -57,6 +58,7 @@ peer chaincode query -C channel.n1 -n private -c '{"Args":["ReadMarblePrivateDet
 peer chaincode query -C channel.n1 -n private -c '{"Args":["ReadMarble","marble5"]}'
 peer chaincode query -C channel.n1 -n private -c '{"Args":["ReadMarblePrivateDetails","marble5"]}'
 #
+echo "Create marble6 in a separate block"
 export MARBLE=$(echo -n "{\"name\":\"marble6\",\"color\":\"black\",\"size\":66,\"owner\":\"dorothy\",\"price\":66}" | base64 | tr -d \\n)
 peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.example.com \
                       --tls --cafile ${PWD}/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem \
@@ -67,6 +69,7 @@ peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.exa
 #wait 2 second for block to be created
 sleep 2
 
+echo "Create marble7 in a separate block"
 export MARBLE=$(echo -n "{\"name\":\"marble7\",\"color\":\"green\",\"size\":77,\"owner\":\"jack\",\"price\":77}" | base64 | tr -d \\n)
 peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.example.com \
                       --tls --cafile ${PWD}/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem \
@@ -76,6 +79,7 @@ peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.exa
 
 #wait 2 second for block to be created
 sleep 2
+echo "Create marble8 and delete marble5 in one block"
 export MARBLE=$(echo -n "{\"name\":\"marble8\",\"color\":\"gray\",\"size\":88,\"owner\":\"jessica\",\"price\":88}" | base64 | tr -d \\n)
 peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.example.com \
                       --tls --cafile ${PWD}/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem \
