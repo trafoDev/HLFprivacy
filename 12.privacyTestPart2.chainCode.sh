@@ -25,7 +25,11 @@ peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.exa
 	                  --peerAddresses localhost:7051 --tlsRootCertFiles ${HOME}/fabric-samples/test-network/organizations/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt \
 	                  --peerAddresses localhost:9051 --tlsRootCertFiles ${HOME}/fabric-samples/test-network/organizations/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt \
                       -C channel.n2 -n marblesNoPDC -c '{"Args":["initMarble","marble5","white","55","peggy"]}'
-
+peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.example.com \
+                      --tls --cafile ${PWD}/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem \
+	                  --peerAddresses localhost:7051 --tlsRootCertFiles ${HOME}/fabric-samples/test-network/organizations/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt \
+	                  --peerAddresses localhost:9051 --tlsRootCertFiles ${HOME}/fabric-samples/test-network/organizations/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt \
+                      -C channel.n2 -n marblesNoPDC -c '{"Args":["transferMarble","marble1","james_bond_007"]}'
 #wait 2 second for block to be created
 sleep 2
 pressAnyKey
@@ -60,6 +64,11 @@ peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.exa
 	                  --peerAddresses localhost:7051 --tlsRootCertFiles ${HOME}/fabric-samples/test-network/organizations/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt \
 	                  --peerAddresses localhost:9051 --tlsRootCertFiles ${HOME}/fabric-samples/test-network/organizations/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt \
                       -C channel.n2 -n marblesNoPDC -c '{"Args":["initMarble","marble8","gray","88","jessica"]}'
+peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.example.com \
+                      --tls --cafile ${PWD}/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem \
+	                  --peerAddresses localhost:7051 --tlsRootCertFiles ${HOME}/fabric-samples/test-network/organizations/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt \
+	                  --peerAddresses localhost:9051 --tlsRootCertFiles ${HOME}/fabric-samples/test-network/organizations/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt \
+                      -C channel.n2 -n marblesNoPDC -c '{"Args":["delete","marble5"]}'
 #wait 2 second for block to be created
 sleep 2
 pressAnyKey

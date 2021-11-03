@@ -3,6 +3,8 @@ MYHOME=$PWD
 
 #clearing data from the second part of testing scenario
 ./19.privacyTestPart2.clearNetwork.sh
+#clearing data from the third part of testing scenario
+./39.privacyTestPart3.clearNetwork.sh
 
 #clearing the network
 cd
